@@ -1,8 +1,7 @@
 'use strict';
 
-const port = 9999;
+const staticPort = 8000;
 
-const { server } = require('./server.js');
-const { routing } = require('./app/routes/routes.js');
+const staticServer = require('./server/static.js');
 
-server(routing, port);
+staticServer('./static', staticPort);
