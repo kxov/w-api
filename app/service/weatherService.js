@@ -8,14 +8,12 @@ const WEATHER_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
 class WeatherService {
   constructor(city) {
-    const url = new URL(WEATHER_URL);
+    this.url = new URL(WEATHER_URL);
 
-    url.searchParams.append('q', city);
-    url.searchParams.append('appId', process.env.TOKEN);
-    url.searchParams.append('lang', 'ua');
-    url.searchParams.append('units', 'metric');
-
-    this.url = url;
+    this.url.searchParams.append('q', city);
+    this.url.searchParams.append('appId', process.env.TOKEN);
+    this.url.searchParams.append('lang', 'ua');
+    this.url.searchParams.append('units', 'metric');
   }
 
   async getWeather() {
